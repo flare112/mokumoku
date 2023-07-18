@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
               <%= f.label :gender %>
-              <%= f.select :gender, [["その他", 0], ["男性", 1], ["女性", 2]] %>
+              <%= f.select :gender, User.genders.keys.map { |k| [t("enum.user.gender.#{k}"),k] }, class: 'form-control' %>
             </div>
             <div class="mb-3">
               <%= f.label :email %>
