@@ -1,6 +1,10 @@
 ja:
   enums:
-    notification_timing:
+    user:
+      gender:
+        other: "その他"
+        male: "男性"
+        female: "女性"
       timing:
         created_event: イベントが作成された時
         commented_to_event: あなたのイベントにコメントがあった時
