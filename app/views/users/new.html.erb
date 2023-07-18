@@ -19,8 +19,10 @@
               <%= f.label :name %>
               <%= f.text_field :name, class: 'form-control' %>
             </div>
+            <div class="mb-3">
               <%= f.label :gender %>
-            <%= f.select :gender, [["その他", 0], ["男性", 1], ["女性", "法学部"]] %>
+              <%= f.select :gender, [["その他", 0], ["男性", 1], ["女性", 2]] %>
+            </div>
             <div class="mb-3">
               <%= f.label :email %>
               <%= f.email_field :email, class: 'form-control' %>
