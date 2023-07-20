@@ -75,3 +75,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
   gem 'nokogiri', '1.12.5'
 
   gem 'enum_help'
+
+gem 'rails-i18n'
