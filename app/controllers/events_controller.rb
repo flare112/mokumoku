@@ -39,7 +39,7 @@ end
   def create
     @event = current_user.events.build(event_params)
 
-    if current_user.female? && params[:event][:only_woman] == "1"
+    if current_user.woman? && params[:event][:only_woman] == "1"
       @event.only_woman = true
     end
 

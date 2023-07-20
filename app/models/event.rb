@@ -29,12 +29,12 @@ class Event < ApplicationRecord
     !past?
   end
 
-  def female_only?
+  def woman_only?
     only_woman
   end
 
   def can_attend?(user)
-    return true unless female_only?
-    user&.female?
+    return true unless woman_only?
+    user&.woman?
   end
 end
