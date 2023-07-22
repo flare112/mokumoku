@@ -23,12 +23,26 @@ class EventsController < ApplicationController
     render :index
   end
 
+  def only_woman_event
+    @q = Event.only_woman.ransack(params[:q])
+    @events = @q.result(distinct: true).includes(:bookmarks, :prefecture, user: { avatar_attachment: :blob })
+                .order(held_at: :desc).page(params[:page])
+    @search_path = future_events_path
+    render :index
+  end
+
+
   def new
     @event = Event.new
   end
 
   def create
     @event = current_user.events.build(event_params)
+
+    if current_user.woman? && params[:event][:only_woman] == "1"
+      @event.only_woman = true
+    end
+
     if @event.save
       User.all.find_each do |user|
         NotificationFacade.created_event(@event, user)
@@ -60,6 +74,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :content, :held_at, :prefecture_id, :thumbnail)
+    params.require(:event).permit(:title, :content, :only_woman, :held_at, :prefecture_id, :thumbnail)
   end
 end
