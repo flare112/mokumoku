@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     collection do
       get :future
       get :past
-      get :only_woman
+      get :only_woman_event
     end
     resource :attendance, only: %i[create destroy], module: :events
     resource :bookmark, only: %i[create destroy], module: :events

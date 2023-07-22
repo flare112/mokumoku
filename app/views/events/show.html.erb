@@ -23,7 +23,7 @@
                     <% end %>
                   </span>
                 <% end %>
-                <% if @event&.woman_only? %>
+                <% if @event.only_woman? %>
                   <span class="badge bg-secondary">女性限定</span>
                 <% end %>
                 <span id="js-event-bookmark-<%= @event.id %>">

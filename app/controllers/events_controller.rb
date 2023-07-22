@@ -23,13 +23,13 @@ class EventsController < ApplicationController
     render :index
   end
 
-  def only_woman
+  def only_woman_event
     @q = Event.only_woman.ransack(params[:q])
     @events = @q.result(distinct: true).includes(:bookmarks, :prefecture, user: { avatar_attachment: :blob })
                 .order(held_at: :desc).page(params[:page])
     @search_path = future_events_path
     render :index
-end
+  end
 
 
   def new
